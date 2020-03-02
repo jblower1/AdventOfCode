@@ -1,8 +1,10 @@
 //test runner for AOC solutions
-//
+//get arguments (2 onwards))
+const args = process.argv.slice(2)
 
+let dayNumber = args[0] || 1
 const 
-    solver = './day' + (process.env.DAY || 1),
+    solver = './day' + dayNumber + '/day' + dayNumber,
     input = solver + '.input'
 
    
