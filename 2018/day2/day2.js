@@ -33,6 +33,22 @@ const countRepeatedLetters = (letters, maxRepeats) => {
 }
 
 const b = (input) => {
+    for(let k=0; k<input.length; k++){
+        for(let i=0; i<input.length; i++){
+            let matchedLetters = []
+            let inputLetters = input[k].split("")
+            let comparisonLetters = input[i].split("")
+            for(let j=0; j<inputLetters.length; j++){
+                if(inputLetters[j] === comparisonLetters[j]){
+                    matchedLetters.push(inputLetters[j])
+                }
+            }
+            if(matchedLetters.length === (inputLetters.length - 1)){
+                return matchedLetters.join("")     
+            }
+        }
+    }
+
 }
 
 module.exports = {a, b }
