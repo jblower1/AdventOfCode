@@ -3,9 +3,10 @@
 const args = process.argv.slice(2)
 
 let dayNumber = args[0] || 1
+let isTest = args[1] || false
 const 
     solver = './day' + dayNumber + '/day' + dayNumber,
-    input = solver + '.input'
+    input = isTest ? solver + '_test.input' : solver + '.input'
 
    
     //To clean the input generically
