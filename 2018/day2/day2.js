@@ -23,32 +23,32 @@ const countRepeatedLetters = (letters, maxRepeats) => {
             letterCounts[letter] = 1
         } 
     })
-    let aLetterCounts = Object.entries(letterCounts)
-    for(let i=0; i<aLetterCounts.length; i++){
-        if(aLetterCounts[i][1] === maxRepeats){
-            return true
-        }
-    }
-    return false
+    return Object.entries(letterCounts).some((letterCount) => {
+        return letterCount[1] === maxRepeats
+    })
 }
 
 const b = (input) => {
     for(let k=0; k<input.length; k++){
         for(let i=0; i<input.length; i++){
-            let matchedLetters = []
             let inputLetters = input[k].split("")
             let comparisonLetters = input[i].split("")
-            for(let j=0; j<inputLetters.length; j++){
-                if(inputLetters[j] === comparisonLetters[j]){
-                    matchedLetters.push(inputLetters[j])
-                }
-            }
+            let matchedLetters = findMatchingArrayLetters(inputLetters, comparisonLetters)
             if(matchedLetters.length === (inputLetters.length - 1)){
                 return matchedLetters.join("")     
             }
         }
     }
 
+}
+const findMatchingArrayLetters = (inputLetters, comparisonLetters) => {
+    const matchedLetters = []
+    for(let j=0; j<inputLetters.length; j++){
+        if(inputLetters[j] === comparisonLetters[j]){
+            matchedLetters.push(inputLetters[j])
+        }
+    }
+    return matchedLetters
 }
 
 module.exports = {a, b }
